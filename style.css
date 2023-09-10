@@ -1,0 +1,212 @@
+body {
+    background-image: url("/image/background.png");
+    background-repeat: no-repeat;
+    background-size: 1280px 630px;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.container3 {
+    display: flex;
+    width: auto;
+    justify-content: space-around;
+    position: relative;
+    top: -5%;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    background-clip: content-box;
+    animation: rainbow 5s linear infinite;
+}
+
+.money {
+    margin-right: 5px;
+}
+
+.container {
+    width: 594px;
+    height: 360px;
+    position: relative;
+    left: 13%;
+    top: 4%;
+    border: 3px solid transparent;
+    background-color: rgba(255, 255, 255, 0.5);
+    background-clip: content-box;
+    animation: rainbow 5s linear infinite;
+}
+
+.item {
+    padding: 5px;
+    border: 3px solid #F40009;
+    background-color: white;
+    border-radius: 10px;
+    position: absolute;
+}
+
+.item:nth-child(1) {
+    top: 1.5%;
+    left: 2.5%;
+}
+
+.item:nth-child(2) {
+    top: 1.5%;
+    left: 36%;
+}
+
+.item:nth-child(3) {
+    top: 1.5%;
+    right: 2.5%;
+}
+
+.item:nth-child(4) {
+    top: 51.5%;
+    left: 2.5%;
+}
+
+.item:nth-child(5) {
+    top: 51.5%;
+    left: 36%;
+}
+
+.item:nth-child(6) {
+    top: 51.5%;
+    right: 2.5%;
+}
+
+.item:hover {
+    background-color: whitesmoke;
+}
+
+.item:active {
+    background-color: silver;
+}
+
+.container2 {
+    width: 280px;
+    height: 374px;
+    background-image: url("/image/dia.png");
+    background-repeat: no-repeat;
+    background-size: 280px 374px;
+    position: relative;
+    left: 70%;
+    bottom: 65%;
+}
+
+.itemContainer {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 41%;
+    left: 8%;
+}
+
+#btn {
+    background-color: #FF0800;
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    position: relative;
+    left: 42.3%;
+    top: 7.5%;
+    font-size: 22px;
+    color: white;
+}
+
+#btn:hover {
+    background-color: #dd0404;
+}
+
+#btn2 {
+    background-color: blue;
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    position: relative;
+    left: 42%;
+    top: 7.5%;
+    font-size: 22px;
+    color: white;
+}
+
+#btn2:hover {
+    background-color: #0047AB;
+}
+
+.volumeBox {
+    width: 45px;
+    height: 45px;
+    position: relative;
+    left: 93%;
+    top: 20%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+    animation: rainbow 5s linear infinite;
+}
+
+.animation {
+    animation: moveRight 0.5s ease-in-out, moveLeft 0.5s ease-in-out;
+    animation-iteration-count: 3;
+}
+
+@keyframes rainbow {
+    0% {
+        border-image-slice: 1;
+        border-image-source: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
+    }
+    14.28% {
+        border-image-slice: 1;
+        border-image-source: linear-gradient(to right, violet, red, orange, yellow, green, blue, indigo, violet);
+    }
+    28.56% {
+        border-image-slice: 1;
+        border-image-source: linear-gradient(to right, indigo, violet, red, orange, yellow, green, blue, indigo);
+    }
+    42.84% {
+        border-image-slice: 1;
+        border-image-source: linear-gradient(to right, blue, indigo, violet, red, orange, yellow, green, blue);
+    }
+    57.12% {
+        border-image-slice: 1;
+        border-image-source: linear-gradient(to right, green, blue, indigo, violet, red, orange, yellow, green);
+    }
+    71.4% {
+        border-image-slice: 1;
+        border-image-source: linear-gradient(to right, yellow, green, blue, indigo, violet, red, orange, yellow);
+    }
+    85.68% {
+        border-image-slice: 1;
+        border-image-source: linear-gradient(to right, orange, yellow, green, blue, indigo, violet, red, orange);
+    }
+    100% {
+        border-image-slice: 1;
+        border-image-source: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
+    }
+}
+
+@keyframes moveRight {
+    0% {
+        transform: translateX(-20px);
+    }
+    100% {
+        transform: translateX(20px);
+    }
+}
+
+@keyframes moveLeft {
+    0% {
+        transform: translateX(20px);
+    }
+    100% {
+        transform: translateX(-20px);
+    }
+}
+
+
+
+
