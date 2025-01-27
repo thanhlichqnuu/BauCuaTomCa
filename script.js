@@ -1,89 +1,91 @@
+const resultContainer = document.querySelector(".result-container");
+const resultItem = document.querySelector(".result-item");
+const items = document.querySelectorAll(".items");
+const btnAction = document.querySelector(".btn-action");
+const volume = document.getElementById("volume");
+const music = document.getElementById("music");
+const effectAudio = document.getElementById("effect-audio");
+const happyText = document.querySelector(".happy-text");
+const title = document.querySelector(".title");
+let isOpen = false;
+let isAnimating = false;
+const itemList = [
+  "/images/nai.png",
+  "/images/bau.png",
+  "/images/ga.png",
+  "/images/ca.png",
+  "/images/cua.png",
+  "/images/tom.png",
+];
 
-let container2 = document.querySelector(".container2");
-let itemContainer = document.querySelector(".itemContainer");
-let moneys = document.querySelectorAll(".money");
-let items = document.querySelectorAll(".item");
-let srcMoney = null;
-let btn = document.getElementById("btn");
-let btn2 = document.getElementById("btn2");
-let volume = document.getElementById("volume");
-let music = document.getElementById("music");
-let effectMusic = document.getElementById("effectMusic");
-let isClick = false;
-let itemlist = [
-  "/image/nai.png",
-  "/image/bau.png",
-  "/image/ga.png",
-  "/image/ca.png",
-  "/image/cua.png",
-  "/image/tom.png"
-]
-
-volume.addEventListener("click", function() {
-  if (music.paused) {
-    music.play();
-    volume.src = "/image/volume.png"
-  }
-  else {
-    music.pause();
-    volume.src = "/image/mute.png"
-  }
-})
-
-btn2.addEventListener("click", function() {
-  if (isClick === false) {
-    itemContainer.innerHTML = "";
-    container2.classList.add("animation");
-    setTimeout(function() {
-      container2.classList.remove("animation");
-    }, 2000)
-    effectMusic.play(); 
+const handleToggleAudio = () => {
+  volume.addEventListener("click", function () {
+    if (music.paused) {
+      music.play();
+      volume.src = "/images/volume.png";
+    } else {
+      music.pause();
+      volume.src = "/images/mute.png";
     }
-    isClick = true;
-})
+  });
+};
 
-btn.addEventListener("click", function() {
-  if (isClick === true) {
-    let newItemList = [];
-    for (let i = 0; i < 3; i++) {
-      let random = Math.floor(Math.random() * itemlist.length);
-      newItemList.push(itemlist[random])
+const handleOpenPlate = () => {
+  btnAction.addEventListener("click", () => {
+    if (isAnimating) return;
+
+    if (isOpen === true) {
+      resultContainer.style.backgroundImage = "url('/images/diamo.png')";
+      const diaMoImg = new Image();
+      diaMoImg.src = "/images/diamo.png";
+
+      diaMoImg.onload = () => {
+        const newItemList = [];
+        const newItemListLength = 3;
+
+        for (let i = 0; i < newItemListLength; i++) {
+          const randomIndex = Math.floor(Math.random() * itemList.length);
+          newItemList.push(itemList[randomIndex]);
+        }
+        const newItemListHTML = newItemList.map((item) => {
+          return `<img src="${item}">`;
+        });
+        resultItem.innerHTML = newItemListHTML.join("");
+      };
+
+      isOpen = false;
+      btnAction.textContent = "Xóc dĩa";
+      btnAction.classList.remove("btn-open");
+      btnAction.classList.add("btn-close");
+    } else {
+      resultContainer.style.backgroundImage = "url('/images/diaup.png')";
+      resultItem.innerHTML = "";
+      resultContainer.classList.add("turnPlateAnimation");
+      effectAudio.play();
+      isAnimating = true;
+
+      setTimeout(() => {
+        resultContainer.classList.remove("turnPlateAnimation");
+        isAnimating = false;
+        isOpen = true;
+        btnAction.textContent = "Mở dĩa";
+        btnAction.classList.remove("btn-close");
+        btnAction.classList.add("btn-open");
+      }, 2000);  
     }
-    let newItemListString = newItemList.map(function(arr) {
-      return `<img src="${arr}">`;
-    })
-    itemContainer.innerHTML = newItemListString.join("");
-  }
-  isClick = false;
-})
+  });
+};
 
-moneys.forEach(function(money) {
-  money.addEventListener("click", function() {
-    srcMoney = money.getAttribute("src");
-  })
-})
+const setCurrentYear = () => {
+  const currentYear = new Date().getFullYear();
+  happyText.innerHTML = `Happy New Year ${currentYear}`;
+  title.innerHTML = `Bầu cua tôm cá ${currentYear}`;
+};
 
-items.forEach(function(item) {
-  item.addEventListener("click", function() {
-    if (srcMoney !== null) {
-      let randomWidth = Math.floor(Math.random() * 86);
-      let randomHeight = Math.floor(Math.random() * 86);
-      item.innerHTML += `<img src="${srcMoney}" width="75px" style="position: absolute; top: ${randomHeight}px; left: ${randomWidth}px;">`;
-    }
-  })
-})
+const startGame = () => {
+  setCurrentYear();
+  handleOpenPlate();
+  handleToggleAudio();
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+startGame();
