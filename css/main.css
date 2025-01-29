@@ -127,7 +127,6 @@ body {
 }
 
 .result-item img {
-  max-height: 5rem;
   position: absolute;
 }
 
@@ -166,9 +165,23 @@ body {
 @media screen and (min-width: 1024px) {
   .game-container {
     flex-direction: row;
-    align-items: center;
-    width: 100%;
     justify-content: space-around;
+  }
+
+  .result-item .item-1 {
+    top: 0%;
+  }
+
+  .result-item .item-2 {
+    bottom: 9%;
+  }
+
+  .result-item .item-3 {
+    top: 0%;
+  }
+
+  .result-item img {
+    max-height: 5.2rem;
   }
 }
 
