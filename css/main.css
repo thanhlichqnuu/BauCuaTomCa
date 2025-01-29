@@ -170,10 +170,6 @@ body {
     width: 100%;
     justify-content: space-around;
   }
-
-  .result-container {
-    margin-bottom: 3rem;
-  }
 }
 
 /* Tablet Breakpoint */
