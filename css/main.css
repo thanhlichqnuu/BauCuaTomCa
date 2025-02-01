@@ -22,12 +22,20 @@ body {
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
-  color: #cc0000;
+  position: relative;
+  top: -5rem;
   text-shadow: 0 0 0.5rem #ff9900;
   -webkit-text-stroke: 0.1rem #ffcc00;
   animation: sparkle 3s linear infinite;
-  position: relative;
-  top: -5rem;
+}
+
+.happy-text-red {
+  color: #cc0000;
+ 
+}
+
+.happy-text-orange {
+  color: #0015ff; 
 }
 
 @keyframes sparkle {
@@ -46,7 +54,7 @@ body {
   padding: 1.25rem;
 }
 
-.volume-container {
+.icon-container {
   position: absolute;
   top: 1.25rem;
   right: 1.25rem;
@@ -55,9 +63,12 @@ body {
   background-color: whitesmoke;
   border-radius: 0.3125rem;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.volume-container img {
+.icon-container img {
   width: 100%;
   height: 100%;
 }
@@ -149,7 +160,7 @@ body {
 }
 
 .turnPlateAnimation {
-  animation: move 0.6s ease-in-out 2;
+  animation: move 0.4s ease-in-out 3;
 }
 
 @keyframes move {
@@ -193,7 +204,6 @@ body {
   }
 
   .happy-text {
-    top: -4rem;
     font-size: 2.5rem;
   }
 
@@ -223,7 +233,7 @@ body {
     top: 5%;
   }
 
-  .volume-container {
+  .icon-container {
     width: 2.5rem;
     height: 2.5rem;
   }
@@ -236,7 +246,6 @@ body {
   }
 
   .happy-text {
-    top: -4rem;
     font-size: 1.4rem;
   }
 
@@ -266,8 +275,8 @@ body {
     top: 5%;
   }
 
-  .volume-container {
-    top: 5rem;
+  .icon-container {
+    top: 1rem;
     width: 2.1875rem;
     height: 2.1875rem;
   }
