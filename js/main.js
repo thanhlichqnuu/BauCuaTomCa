@@ -177,10 +177,10 @@ const toggleMode = () => {
   if (isModePlayer) {
     isFirstTime = true;
     resultContainer.addEventListener("click", handlePlatePlayer);
-    happyText.classList.replace("happy-text-orange", "happy-text-red")
+    happyText.classList.replace("happy-text-blue", "happy-text-red")
   } else {
     resultContainer.addEventListener("click", handlePlateAdmin);
-    happyText.classList.replace("happy-text-red", "happy-text-orange")
+    happyText.classList.replace("happy-text-red", "happy-text-blue")
   }
 };
 
